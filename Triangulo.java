@@ -3,28 +3,31 @@ package exercicios;
 import java.util.Scanner;
 
 class Triangulo {
-    private float a, b, c;
+    private double a;
+    private double b;
+    private double c;
 
-    public Triangulo(float a, float b, float c) {
+    public Triangulo(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
     public void identificar() {
-        float sqrtA = this.a * this.a;
-        float sqrtB = this.b * this.b;
-        float sqrtC = this.c * this.c;
+        double squareA = Math.pow(this.a, 2);
+        double squareB = Math.pow(this.b, 2);
+        double squareC = Math.pow(this.c, 2);
 
         if (this.a >= this.b + this.c) System.out.println("NAO FORMA TRIANGULO");
         else {
-            if (sqrtA == sqrtB + sqrtC) System.out.println("TRIANGULO RETANGULO");
-            else if (sqrtA > sqrtB + sqrtC) System.out.println("TRIANGULO OBTUSANGULO");
-            else if (sqrtA < sqrtB + sqrtC) System.out.println("TRIANGULO ACUTANGULO");
+            if (squareA == squareB + squareC) System.out.println("TRIANGULO RETANGULO");
+            else if (squareA > squareB + squareC) System.out.println("TRIANGULO OBTUSANGULO");
+            else if (squareA < squareB + squareC) System.out.println("TRIANGULO ACUTANGULO");
 
             if (this.a == this.b && this.b == this.c) System.out.println("TRIANGULO EQUILATERO");
             else if (this.a == this.b || this.a == this.c || this.b == this.c)
                 System.out.println("TRIANGULO ISOSCELES");
+            else System.out.println("TRIANGULO ESCALENO");
         }
     }
 }
@@ -33,9 +36,9 @@ public class Main {
     static public void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        float a = in.nextFloat();
-        float b = in.nextFloat();
-        float c = in.nextFloat();
+        double a = in.nextDouble();
+        double b = in.nextDouble();
+        double c = in.nextDouble();
 
         Triangulo triangulo = new Triangulo(a, b, c);
 
