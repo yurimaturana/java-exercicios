@@ -32,6 +32,20 @@ class Vetor {
             }
 
     }
+
+    public void insertionSort() { // O(n^2)
+        for (int i = 1; i < this.n; i++) {
+            int chave = this.vetor[i];
+            int j = i - 1;
+
+            while (j >= 0 && this.vetor[j] > chave) {
+                this.vetor[j + 1] = this.vetor[j];
+                j--;
+            }
+
+            this.vetor[j + 1] = chave;
+        }
+    }
 }
 
 public class Main {
@@ -43,7 +57,7 @@ public class Main {
         Vetor vetor = new Vetor(n);
 
         vetor.imprime();
-        vetor.selectionSort();
+        vetor.insertionSort();
         vetor.imprime();
     }
 }
